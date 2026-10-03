@@ -8,8 +8,6 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from app.auth import (
-    admin_delete_user_account,
-    admin_user,
     authenticate,
     change_password,
     create_email_verification,
@@ -624,100 +622,3 @@ def reset_password_endpoint(
         ),
     }
 
-@router.get("/admin/users")
-def admin_users(
-    user=Depends(admin_user),
-):
-    response = (
-        supabase
-        .table("users")
-        .select("id, name, email, created_at")
-        .order("created_at", desc=True)
-        .execute()
-    )
-
-    return {
-        "success": True,
-        "users": response.data or [],
-    }   
-
-@router.delete("/admin/users/{user_id}")
-def admin_delete_user(
-    user_id: int,
-    admin=Depends(admin_user),
-):
-    # Prevent the administrator from deleting their own account.
-    if user_id == admin["id"]:
-        raise HTTPException(
-            status_code=400,
-            detail="Administrators cannot delete their own account from this page.",
-        )
-
-    admin_delete_user_account(user_id)
-
-    return {
-        "success": True,
-        "message": "User account deleted successfully.",
-    }
-
-@router.get("/admin/users/export")
-def admin_export_users(
-    admin=Depends(admin_user),
-):
-    """
-    Export registered user information as a CSV file.
-
-    Only administrators can access this endpoint.
-    Authentication secrets such as passwords, password hashes,
-    salts, tokens, and verification codes are never exported.
-    """
-
-    response = (
-        supabase
-        .table("users")
-        .select("id, name, email, created_at")
-        .order("created_at", desc=True)
-        .execute()
-    )
-
-    users = response.data or []
-
-    def csv_value(value):
-        if value is None:
-            return ""
-
-        value = str(value)
-
-        # Escape CSV values containing commas, quotes, or newlines.
-        if any(char in value for char in [",", '"', "\n", "\r"]):
-            value = '"' + value.replace('"', '""') + '"'
-
-        return value
-
-    lines = [
-        "User ID,Name,Email,Created At"
-    ]
-
-    for user in users:
-        lines.append(
-            ",".join(
-                [
-                    csv_value(user.get("id")),
-                    csv_value(user.get("name")),
-                    csv_value(user.get("email")),
-                    csv_value(user.get("created_at")),
-                ]
-            )
-        )
-
-    csv_content = "\n".join(lines)
-
-    return StreamingResponse(
-        iter([csv_content]),
-        media_type="text/csv",
-        headers={
-            "Content-Disposition": (
-                'attachment; filename="quantuminsight-users.csv"'
-            )
-        },
-    )
