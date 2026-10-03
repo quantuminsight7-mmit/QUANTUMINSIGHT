@@ -105,7 +105,7 @@ def send_verification_email(
     email_payload = {
         "sender": {
             "name": "QuantumInsight",
-            "email": "bilalshaikh1339@gmail.com",
+            "email": "quantuminsight7@gmail.com",
         },
         "to": [
             {
@@ -493,7 +493,7 @@ def forgot_password(req: ForgotPasswordRequest):
     email_payload = {
         "sender": {
             "name": "QuantumInsight",
-            "email": "bilalshaikh1339@gmail.com",
+            "email": "quantuminsight7@gmail.com",
         },
         "to": [
             {
@@ -621,4 +621,3 @@ def reset_password_endpoint(
             "You can now sign in."
         ),
     }
-
