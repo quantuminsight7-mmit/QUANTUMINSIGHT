@@ -1,6 +1,6 @@
 # ⚛️ QuantumInsight
 
-# LIVE :- https://quantum-insight.bilalshaikh1339.workers.dev/
+# LIVE :- https://quantuminsight.quantuminsight7.workers.dev/
 
 ### An AI-Powered Quantum Circuit Intelligence, Optimization & Health Analysis Framework
 
