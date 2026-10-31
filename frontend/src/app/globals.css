@@ -860,3 +860,271 @@ textarea:focus {
     font-size: 20px;
   }
 }
+
+
+
+/* =====================================
+   QUANTUMINSIGHT THEME SYSTEM
+===================================== */
+
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Theme transition */
+
+body,
+.app-bg,
+.sidebar,
+.topbar,
+.card,
+.metric,
+.upgrade-card,
+input,
+textarea,
+.theme-option {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* =====================================
+   THEME SELECTOR
+===================================== */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.theme-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.theme-option:hover {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.theme-option.selected {
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.12);
+}
+
+@media (max-width: 640px) {
+  .theme-option {
+    padding: 7px;
+  }
+
+  .theme-option span:last-child {
+    display: none;
+  }
+}
+
+/* =====================================
+   LIGHT THEME
+===================================== */
+
+:root[data-theme="light"] body {
+  background: #f1f5f9;
+  color: #172033;
+}
+
+:root[data-theme="light"] .app-bg {
+  background:
+    radial-gradient(
+      circle at 70% -10%,
+      rgba(57, 75, 255, 0.07),
+      transparent 34%
+    ),
+    #f1f5f9;
+}
+
+:root[data-theme="light"] .sidebar {
+  background: rgba(255, 255, 255, 0.97);
+  border-right-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .topbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"] .metric {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .upgrade-card {
+  background: linear-gradient(
+    145deg,
+    #ecfeff,
+    #f5f3ff
+  );
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] .side-link {
+  color: #475569;
+}
+
+:root[data-theme="light"] .side-link:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+:root[data-theme="light"] .side-link.active {
+  color: #0f172a;
+  background: linear-gradient(
+    90deg,
+    #e0f2fe,
+    #ede9fe
+  );
+}
+
+:root[data-theme="light"] .side-label {
+  color: #64748b;
+}
+
+:root[data-theme="light"] .top-action {
+  color: #334155;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .icon-btn {
+  color: #334155;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .btn-secondary {
+  color: #334155;
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] input,
+:root[data-theme="light"] textarea {
+  color: #172033;
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] input::placeholder,
+:root[data-theme="light"] textarea::placeholder {
+  color: #94a3b8;
+}
+
+:root[data-theme="light"] .sticky.bottom-0 {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .theme-toggle {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] .theme-option {
+  color: #475569;
+}
+
+:root[data-theme="light"] .theme-option.selected {
+  color: #0369a1;
+  background: #e0f2fe;
+}
+
+/* Common Tailwind text color adjustments */
+
+:root[data-theme="light"] .text-slate-200,
+:root[data-theme="light"] .text-slate-300 {
+  color: #334155 !important;
+}
+
+:root[data-theme="light"] .text-slate-400 {
+  color: #475569 !important;
+}
+
+:root[data-theme="light"] .text-slate-500 {
+  color: #64748b !important;
+}
+
+:root[data-theme="light"] .text-slate-600 {
+  color: #64748b !important;
+}
+
+:root[data-theme="light"] .text-slate-700 {
+  color: #64748b !important;
+}
+
+/* Common borders */
+
+:root[data-theme="light"] .border-white\/5,
+:root[data-theme="light"] .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Common light surfaces */
+
+:root[data-theme="light"] .bg-white\/\[0\.02\],
+:root[data-theme="light"] .bg-white\/\[0\.04\] {
+  background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+/* Footer */
+
+:root[data-theme="light"] footer {
+  border-color: #e2e8f0;
+}
+
+/* Preserve the dark code editor for readability */
+
+:root[data-theme="light"] .code-editor {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .app-bg,
+  .sidebar,
+  .topbar,
+  .card,
+  .metric {
+    transition: none !important;
+  }
+}
+
