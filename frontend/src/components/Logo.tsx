@@ -17,7 +17,7 @@ export default function Logo({
       className="inline-flex items-center"
     >
       <img
-        src="/quantuminsight-logo.svg"
+        src="/logo.svg"
         alt="QuantumInsight"
         width={compact ? 52 : 180}
         height={compact ? 52 : 64}
