@@ -252,12 +252,12 @@ export default function AppShell({
                 © 2026 QuantumInsight. All rights reserved.
               </p>
 
-              <p className="text-xs text-slate-600">
-                Designed &amp; Developed by{" "}
-                <span className="text-slate-400">
-                  Mohammad Bilal Irfan Shaikh
-                </span>
-              </p>
+             <p className="text-sm text-slate-400">
+              Designed &amp; Developed by{" "}
+              <span className="font-bold tracking-wide text-cyan-400">
+                QUANTUMINSIGHT
+              </span>
+            </p>
             </div>
           </footer>
         </main>
