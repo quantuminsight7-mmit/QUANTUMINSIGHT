@@ -17,6 +17,8 @@ const nav = [
   ["/settings", "Settings", "settings"],
 ];
 
+<Logo compact href="/dashboard" />
+
 export default function AppShell({
   children,
 }: {
