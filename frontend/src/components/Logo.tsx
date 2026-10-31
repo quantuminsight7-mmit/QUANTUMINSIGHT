@@ -3,12 +3,16 @@ import Link from "next/link";
 
 interface LogoProps {
   compact?: boolean;
+  href?: string;
 }
 
-export default function Logo({ compact = false }: LogoProps) {
+export default function Logo({
+  compact = false,
+  href = "/",
+}: LogoProps) {
   return (
     <Link
-      href="/dashboard"
+      href={href}
       aria-label="QuantumInsight home"
       className="inline-flex items-center"
     >
