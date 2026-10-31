@@ -6,6 +6,7 @@ import { useState } from "react";
 import Logo from "./Logo";
 import { Icon } from "./Icons";
 import { useAuth } from "../lib/auth";
+import ThemeToggle from "./ThemeToggle";
 
 const nav = [
   ["/dashboard", "Dashboard", "grid"],
@@ -42,14 +43,10 @@ export default function AppShell({
       >
         {/* Brand */}
         <div className="flex shrink-0 items-center justify-between border-b border-white/5 px-5 py-5">
-          <Link
-            href="/dashboard"
-            onClick={() => setOpen(false)}
-            className="transition-opacity hover:opacity-90"
-          >
+          <div onClick={() => setOpen(false)}>
             <Logo compact />
-          </Link>
-
+          </div>
+        
           <button
             type="button"
             aria-label="Close navigation"
@@ -222,6 +219,7 @@ export default function AppShell({
             >
               <Icon name="zap" size={15} />
               New analysis
+              <ThemeToggle />
             </Link>
 
             <Link
